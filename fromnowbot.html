@@ -1,14 +1,65 @@
 <head>
-  <title>fromnowbot</title>
+	<title>FromNowBot</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
-
-  {{> hello}}
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-12">
+				<h3>Request History</h3>
+				<table class="table table-bordered table-hover">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Query Time</th>
+							<th>Username</th>
+							<th>Chat ID</th>
+							<th>Input Text</th>
+							<th>Parsed Date</th>
+							<th>From Now</th>
+						</tr>
+					</thead>
+					<tbody>
+						{{#each history}}
+							{{#if query_success}}
+								{{> history_item_success}}
+							{{else}}
+								{{> history_item_fail}}
+							{{/if}}
+						{{/each}}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+<template name="history_item_success">
+	<tr class="success">
+		<td>{{_id}}</td>
+		<td>{{formatRawDate timestamp}}</td>
+		<td>{{username}}</td>
+		<td>{{chat_id}}</td>
+		<td>{{inputText}}</td>
+		<td>{{formatRawDate target_date}}</td>
+		<td>{{formatHumanDate target_date}}</td>
+	</tr>
+</template>
+
+<template name="history_item_fail">
+	<tr class="danger">
+		<td>{{_id}}</td>
+		<td>{{formatRawDate timestamp}}</td>
+		<td>{{username}}</td>
+		<td>{{chat_id}}</td>
+		<td colspan="3">{{inputText}}</td>
+	</tr>
 </template>

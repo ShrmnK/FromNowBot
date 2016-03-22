@@ -1,3 +1,6 @@
+# App-specific files
+settings.json
+
 # Logs
 logs
 *.log

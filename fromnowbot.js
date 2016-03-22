@@ -1,6 +1,8 @@
-History = new Mongo.Collection("history");
+History = new Mongo.Collection('history');
 
 if(Meteor.isClient) {
+	Meteor.subscribe('history');
+	
 	Template.body.helpers({
 		history: function() {
 			return History.find({});
@@ -106,6 +108,10 @@ if(Meteor.isServer) {
 					, message.chat.id, true);
 			}
 		});
+	});
+	
+	Meteor.publish("history", function () {
+		return History.find();
 	});
 }
 

@@ -37,6 +37,14 @@ if(Meteor.isServer) {
 			return 'Send me a time/date you would like to calculate the difference from now til!';
 		});
 		
+		TelegramBot.addListener('/help', function(command, username) {
+			return 'Send me a time/date you would like to calculate the difference from now til!';
+		});
+		
+		TelegramBot.addListener('/list', function(command, username) {
+			return 'There are no commands! Send me a time/date you would like to calculate the difference from now til!';
+		});
+		
 		/*TelegramBot.addListener('/test', function(command, username) {
 			var commandCat = "";
 			if(command.length >= 2)

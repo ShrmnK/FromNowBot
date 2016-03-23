@@ -7,7 +7,9 @@ Live at [@FromNowBot](https://telegram.me/FromNowBot)
 Makes use of [benjick:telegram-bot](https://github.com/benjick/meteor-telegram-bot) extensively.
 
 ### settings.json
-Run the app with this supplied json file to make use of all the features of the bot
+Run the app with this supplied json file to make use of all the features of the bot.
+
+Note that custom messages' `input` will be lower-cased before comparison. `reply` is markdown-enabled.
 
 > Run with `meteor run --settings settings.json`
 ```json
@@ -20,8 +22,9 @@ Run the app with this supplied json file to make use of all the features of the 
 	  { "input": "/list", "reply": "Send me a time/date you would like to calculate the difference from now til!" },
 	  { "input": "start", "reply": "Send me a time/date you would like to calculate the difference from now til!" },
 	  { "input": "/start", "reply": "Send me a time/date you would like to calculate the difference from now til!" },
-	  { "input": "what is love?", "reply": "baby don't hurt me" },
-	  { "input": "don't hurt me", "reply": "no more" }
+	  { "input": "what is love?", "reply": "_Baby don't hurt me_" },
+	  { "input": "don't hurt me", "reply": "*No more*" },
+	  { "input": "r2d2", "reply": "[R2D2's Secret Message](https://www.youtube.com/watch?v=6-HUgzYPm9g)" }
   ],
   "public": {
     "dateDisplayFormat": "dddd, MMMM Do YYYY, h:mm:ssa (Z)"

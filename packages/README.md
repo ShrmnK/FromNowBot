@@ -1,5 +1,10 @@
 # FromNowBot - Telegram Bot
 
+FromNowBot is a Telegram Bot made to reply with the time difference from now until the given time/date.
+
+Live at [@FromNowBot](https://telegram.me/FromNowBot)
+
+Makes use of [benjick:telegram-bot](https://github.com/benjick/meteor-telegram-bot) extensively.
 
 ### settings.json
 Run the app with this supplied json file to make use of all the features of the bot
@@ -23,3 +28,7 @@ Run the app with this supplied json file to make use of all the features of the 
   }
 }
 ```
+
+---
+
+> This is my first public experiment with Meteor!
